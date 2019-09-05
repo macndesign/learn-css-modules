@@ -1,0 +1,30 @@
+@import 'reset';
+@import 'variables';
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+}
+
+.default {
+    font: 100% $font-stack;
+    color: #fff;
+    padding: 5px;
+    background-color: $primary-color;
+    span {
+        border-bottom: solid 5px $primary-color;
+    }
+    @include transform(rotate(30deg));
+}
+
+.warning {
+    composes: default;
+    color: grey;
+    background-color: yellow;
+}
+
+.error {
+    composes: warning;
+    color: red;
+}
